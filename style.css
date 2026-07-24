@@ -104,6 +104,9 @@ h2 {
   margin-bottom: 14px;
   overflow: hidden;
   transition: opacity 0.2s ease;
+  width: 100%;
+  object-fit: cover;
+  background: #eee;
 }
 
 .project:hover .thumb { opacity: 0.8; }
