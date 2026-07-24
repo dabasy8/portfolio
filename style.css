@@ -225,8 +225,8 @@ h2 {
 }
 
 .gallery a:hover img {
-  transform: scale(3.0);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transform: scale(5.0);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .awards {
