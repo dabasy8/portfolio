@@ -205,16 +205,29 @@ h2 {
   gap: 14px;
 }
 
+.gallery a {
+  position: relative;
+  display: block;
+  z-index: 1;
+}
+
+.gallery a:hover {
+  z-index: 5;
+}
+
 .gallery img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 4px;
   display: block;
-  transition: opacity 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.gallery a:hover img { opacity: 0.8; }
+.gallery a:hover img {
+  transform: scale(1.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
 
 .awards {
   max-width: var(--max);
