@@ -225,7 +225,7 @@ h2 {
 }
 
 .gallery a:hover img {
-  transform: scale(1.5);
+  transform: scale(2.25);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
