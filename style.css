@@ -3,7 +3,7 @@
   --muted: #6b6b6b;
   --bg: #ffffff;
   --line: #e5e5e5;
-  --max: 1100px;
+  --max: 1600px;
 }
 
 * { box-sizing: border-box; }
@@ -220,7 +220,7 @@ h2 {
   aspect-ratio: 4 / 3;
   object-fit: contain;
   object-position: center;
-  background: #f2f2f2;
+  background: transparent;
   border-radius: 4px;
   display: block;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -228,6 +228,39 @@ h2 {
 
 .gallery a:hover img {
   transform: scale(4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Modifier: round images (transparent PNGs that are already circular) —
+   drop the gray letterbox so the circle floats free instead of sitting in a frame. */
+.gallery-item.round img {
+  background: transparent;
+  border-radius: 0;
+}
+
+/* Modifier: wide/panoramic images — span the full gallery row and use a
+   much wider frame so panoramas display at readable size instead of a thin sliver. */
+.gallery-item.wide {
+  grid-column: 1 / -1;
+}
+
+.gallery-item.wide img {
+  aspect-ratio: 21 / 9;
+}
+
+/* Video items — same frame/hover behavior as photos */
+.gallery-item video {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: transparent;
+  border-radius: 4px;
+  display: block;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-item:hover video {
+  transform: scale(2);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
