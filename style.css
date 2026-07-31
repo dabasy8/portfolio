@@ -264,6 +264,23 @@ h2 {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Modifier: large — makes a gallery item (e.g. a video) span more of the row
+   and use a wider frame so it displays bigger than a standard thumbnail. */
+.gallery-item.large {
+  grid-column: span 2;
+}
+
+.gallery-item.large video,
+.gallery-item.large img {
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 560px) {
+  .gallery-item.large {
+    grid-column: 1 / -1;
+  }
+}
+
 .gallery .caption {
   display: block;
   font-size: 12px;
