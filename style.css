@@ -226,9 +226,13 @@ h2 {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.gallery a:hover img {
-  transform: scale(4);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+/* Hover zoom only on devices with a real mouse/trackpad — disabled on
+   touchscreens (phones/tablets) where "hover" is unreliable and can get stuck. */
+@media (hover: hover) and (pointer: fine) {
+  .gallery a:hover img {
+    transform: scale(4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
 }
 
 /* Modifier: round images (transparent PNGs that are already circular) —
@@ -238,14 +242,20 @@ h2 {
   border-radius: 0;
 }
 
-/* Modifier: wide/panoramic images — span the full gallery row and use a
-   much wider frame so panoramas display at readable size instead of a thin sliver. */
+/* Modifier: wide/panoramic images — same height as a standard thumbnail,
+   but double the width (2X, Y), by spanning 2 grid columns. */
 .gallery-item.wide {
-  grid-column: 1 / -1;
+  grid-column: span 2;
 }
 
 .gallery-item.wide img {
-  aspect-ratio: 21 / 9;
+  aspect-ratio: 8 / 3;
+}
+
+@media (max-width: 560px) {
+  .gallery-item.wide {
+    grid-column: 1 / -1;
+  }
 }
 
 /* Video items — same frame/hover behavior as photos */
@@ -259,9 +269,11 @@ h2 {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.gallery-item:hover video {
-  transform: scale(6);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+@media (hover: hover) and (pointer: fine) {
+  .gallery-item:hover video {
+    transform: scale(6);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
 }
 
 /* Modifier: large — makes a gallery item (e.g. a video) span more of the row
