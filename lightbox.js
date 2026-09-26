@@ -99,3 +99,16 @@
     startX = null;
   });
 })();
+
+// Header: transparent over the hero, solid once the page scrolls past it.
+(function () {
+  var header = document.querySelector('.site-header');
+  var hero = document.querySelector('.hero');
+  if (!header || !hero) return;
+  function update() {
+    header.classList.toggle('on-hero', hero.getBoundingClientRect().bottom > header.offsetHeight);
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
