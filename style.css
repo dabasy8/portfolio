@@ -579,3 +579,6 @@ body.lightbox-lock { overflow: hidden; }
 @media (max-width: 560px) {
   .gallery.compact { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); }
 }
+
+.contact .download { margin-top: 28px; }
+.contact .download a { font-size: 15px; font-weight: 600; }
